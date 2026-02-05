@@ -4,6 +4,7 @@
 
 1. Java 코드 컴파일하기
 - javac ClassName.java
+- javac ClassName.java -encoding utf-8
 
 2. input 파일로 실행시키기
 - java ClassName < input_파일로_가는_상대경로_그리고_파일명
