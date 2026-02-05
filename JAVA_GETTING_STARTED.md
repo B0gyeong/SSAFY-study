@@ -1,6 +1,4 @@
-# 🛠 Java 시작하기 가이드
-
-## Java 파일 컴파일 방법
+# 🛠 Java 파일 컴파일 방법
 
 1. Java 코드 컴파일하기
 - javac ClassName.java
