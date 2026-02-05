@@ -24,12 +24,12 @@
 <br>
 
 ## 👥 스터디 멤버
-
-| 프로필 | 이름 | GitHub | 목표 |
-| :---: | :---: | :---: | :--- |
-| <img src="https://github.com/chlqhrud0208.png" width="80"> | **최보경** | [@chlqhrud0208](https://github.com/chlqhrud0208) | SSAFY A형 정복! 🏆 |
-| <img src="https://github.com/깃허브ID.png" width="80"> | **[이름]** | [@깃허브ID](https://github.com/깃허브ID) | 1일 1커밋 유지하기 🌱 |
-| <img src="https://github.com/깃허브ID.png" width="80"> | **[이름]** | [@깃허브ID](https://github.com/깃허브ID) | 알고리즘 고수되기 🔥 |
+| 이름 | GitHub | 목표 |
+| :---: | :---: | :--- |
+| [이름] | [@github_id](https://github.com/...) | 1일 1커밋 유지하기 |
+| [이름] | [@github_id](https://github.com/...) | 1일 1커밋 유지하기 |
+| [이름] | [@github_id](https://github.com/...) | 1일 1커밋 유지하기 |
+| 최보경 | [@chlqhrud0208](https://github.com/B0gyeong) | SSAFY A형 정복!🔥 |
 
 <br>
 
