@@ -55,4 +55,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+.DS_Store
+
 # End of https://www.toptal.com/developers/gitignore/api/java
