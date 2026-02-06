@@ -1,10 +1,11 @@
 import java.util.*;
 import java.io.*;
 
-public class Solution{
+public class SolutionSwimming{
     public static void checkVisit(boolean[][][] visited, int neigh_r, int neigh_c, int nt, Queue<int[]> q){
-        if(!visited[neigh_r][neigh_c][nt]){
-            visited[neigh_r][neigh_c][nt] = true;
+        int t = nt % 3;
+        if(!visited[neigh_r][neigh_c][t]){
+            visited[neigh_r][neigh_c][t] = true;
             q.add(new int[]{neigh_r, neigh_c, nt});
         }
     }
@@ -39,9 +40,6 @@ public class Solution{
 
             boolean[][][] visited = new boolean[N][N][3]; // 2: 소용돌이 건너려 함
 
-            int r = end[0] - start[0];
-            int c = end[1] - start[1];
-
             int[] dr = { -1, 1, 0, 0, 0 };
             int[] dc = { 0, 0, -1, 1, 0 }; 
 
@@ -73,21 +71,21 @@ public class Solution{
                     neigh_c = curr_c + dc[i];
                     if(neigh_r >= 0 && neigh_c >= 0 && neigh_r < N && neigh_c < N){
                         neighbor = area[neigh_r][neigh_c];
-                        if(neighbor == 2){
-                            if(nt % 3 == 2){
-                                checkVisit(visited, neigh_r, neigh_c, nt%3, q);
-                            }else{
-                                continue;
-                            }
-                        }else if(neighbor == 1){
+                        boolean isWait = (neigh_r == curr_r && neigh_c == curr_c);
+                        if(isWait){
+                            checkVisit(visited, neigh_r, neigh_c, nt, q);
                             continue;
-                        }else{
-                            checkVisit(visited, neigh_r, neigh_c, nt%3, q);
                         }
+                        if(neighbor == 1){
+                            continue;
+                        }
+                        if(neighbor == 2 && sec % 3 != 2){
+                            continue;
+                        }
+                        checkVisit(visited, neigh_r, neigh_c, nt, q);
                     }
                 }
             }
-
             System.out.println("#" + test_case + " " + result);
         }
     }
