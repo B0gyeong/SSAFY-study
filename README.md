@@ -26,7 +26,7 @@
 ## 👥 스터디 멤버
 | 이름 | GitHub | 목표 |
 | :---: | :---: | :--- |
-| [이름] | [@github_id](https://github.com/...) | 1일 1커밋 유지하기 |
+| 김지우 | [@Jiwoo-Kim0](https://github.com/Jiwoo-Kim0) | 코테 합격하자 |
 | [이름] | [@github_id](https://github.com/...) | 1일 1커밋 유지하기 |
 | 이효주 | [@barleymilk](https://github.com/barleymilk) | 1일 1커밋😊 |
 | 최보경 | [@chlqhrud0208](https://github.com/B0gyeong) | SSAFY A형 정복!🔥 |
