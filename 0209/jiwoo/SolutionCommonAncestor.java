@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Solution{
+public class SolutionCommonAncestor{
     static BufferedReader br;
     static StringTokenizer st;
     static int V;
@@ -85,7 +85,6 @@ public class Solution{
             dfs(commonIdx);
 
             System.out.println("#" + test_case + " " + commonIdx + " " + cnt);
-            //push 되라
         }
     }
 }
