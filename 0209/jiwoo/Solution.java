@@ -72,6 +72,7 @@ public class Solution{
                 visited[x1] = true;
             }
 
+
             int x2 = V2;
             while(x2 != 0){
                 if(visited[x2]){
