@@ -85,6 +85,7 @@ public class Solution{
             dfs(commonIdx);
 
             System.out.println("#" + test_case + " " + commonIdx + " " + cnt);
+            //push 되라
         }
     }
 }
