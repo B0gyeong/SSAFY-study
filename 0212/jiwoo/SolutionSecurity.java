@@ -34,7 +34,7 @@ public class SolutionSecurity{
         	House curr = iterator.next();
         	distance = Math.abs(curr.r - r) + Math.abs(curr.c - c);
         	if(distance < k) {
-        		cnt++;
+        		cnt++; 
         	}
         }
         
