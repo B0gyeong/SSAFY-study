@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Solution{
+public class SolutionCommonAncestor{
     static BufferedReader br;
     static StringTokenizer st;
     static int V;
@@ -71,6 +71,7 @@ public class Solution{
                 x1 = parent[x1];
                 visited[x1] = true;
             }
+
 
             int x2 = V2;
             while(x2 != 0){
