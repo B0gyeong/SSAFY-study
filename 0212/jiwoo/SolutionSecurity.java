@@ -58,8 +58,6 @@ public class SolutionSecurity{
             M = Integer.parseInt(st.nextToken());
             area = new int[N][N];
             houses = new ArrayList<House>();
-            int currR;
-            int currC;
             maxCnt = 0;
 
             for(int i = 0; i < N; i++){
