@@ -8,7 +8,6 @@ public class S2105_디저트카페 {
   static int[] dx = {1,1,-1,-1}, dy={1,-1,-1,1}; // 방향 순서: RD, LD, LU, RU
 
   public static void main(String[] args) throws Exception {
-    System.setIn(new FileInputStream("input_dessertcafe.txt"));
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     int T = Integer.parseInt(br.readLine());
     
