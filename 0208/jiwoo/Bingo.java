@@ -48,7 +48,6 @@ public class Bingo{
                 }
             }
             if(tmp == 5){
-                System.out.println("row! " + h);
                 cnt++;
             }
             tmp = 0;
@@ -62,7 +61,6 @@ public class Bingo{
                 }
             }
             if(tmp == 5){
-                System.out.println("col! " + h);
                 cnt++;
             }
             tmp = 0;
@@ -78,7 +76,6 @@ public class Bingo{
                 }
             }
             if(tmp == 5){
-                System.out.println("diag1! " + h);
                 cnt++;
             }
             tmp = 0;
@@ -93,7 +90,6 @@ public class Bingo{
                 }
             }
             if(tmp == 5){
-                System.out.println("diag2! " + h);
                 cnt++;
             }
             tmp = 0;
