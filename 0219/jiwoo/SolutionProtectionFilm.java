@@ -7,71 +7,59 @@ public class SolutionProtectionFilm{
     static int K;
     static int[][] film;
     static boolean[] protect;
-    static boolean[] visited;
     static int result;
 
     public static void combination(int depth, int changed, int[][] test){
-        if(depth == W){ //n = W
-            result = Math.min(result, changed);
+        if(depth == D){ //n = D
+            if(inspect(test)){
+                result = Math.min(result, changed);
+            }
+            
             return;
         }
-        if(changed == W){
-            return;
-        }
-        if(inspect(test)){
-            result = Math.min(result, changed);
+        if(changed >= result){
             return;
         }
 
-        visited[depth] = false;
+        int[] backup = new int[W];
+        for(int c = 0; c < W; c++){
+            backup[c] = test[depth][c];
+        }
+        
         combination(depth + 1, changed, test);
 
-        visited[depth] = true;
-        for(int r = 0; r < D; r++){
-            if(r == depth){
-                for(int c = 0; c < W; c++){
-                    test[r][c] = 0;
-                }
-            }else{
-                for(int c = 0; c < W; c++){
-                test[r][c] = film[r][c];
-            }
-            }
+        for(int c = 0; c < W; c++){
+            test[depth][c] = 0;
         }
         combination(depth + 1, changed + 1, test);
 
-        for(int r = 0; r < D; r++){
-            if(r == depth){
-                for(int c = 0; c < W; c++){
-                    test[r][c] = 1;
-                }
-            }else{
-                for(int c = 0; c < W; c++){
-                test[r][c] = film[r][c];
-            }
-            }
+        for(int c = 0; c < W; c++){
+            test[depth][c] = 1;
         }
         combination(depth + 1, changed + 1, test);
 
-        visited[depth] = false;
+        for(int c = 0; c < W; c++){
+            test[depth][c] = backup[c];
+        }
     }
 
     public static boolean inspect(int[][] test){
-        boolean ret = true;
         int above;
-        int cnt = 0;
+        int cnt;
+
+        if(K == 1) return true;
 
         for(int c = 0; c < W; c++){
             above = test[0][c];
-            cnt++;
+            cnt = 1;
             protect[c] = false;
             for(int r = 1; r < D; r++){
                 if(above == test[r][c]){
                     cnt++;
                 }else{
-                    cnt = 0;
+                    cnt = 1;
                 }
-                if(cnt >= 3){
+                if(cnt >= K){
                     protect[c] = true;
                     break;
                 }
@@ -96,11 +84,10 @@ public class SolutionProtectionFilm{
             D = Integer.parseInt(st.nextToken());
             W = Integer.parseInt(st.nextToken());
             K = Integer.parseInt(st.nextToken());
-            result = W;
+            result = D;
 
             film = new int[D][W];
             protect = new boolean[W];
-            visited = new boolean[W];
 
             for(int i = 0; i < D; i++){
                 st = new StringTokenizer(br.readLine().trim());
