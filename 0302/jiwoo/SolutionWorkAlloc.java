@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Solution {
+public class SolutionWorkAlloc {
     static int N;
     static double[][] work;
     static boolean[] done;
