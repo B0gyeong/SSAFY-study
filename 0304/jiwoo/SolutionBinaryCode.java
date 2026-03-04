@@ -62,7 +62,7 @@ public class SolutionBinaryCode {
                     mid = 0;
                     right = 1;
                 }else{
-                    //
+                    
                 }
             }
         }
