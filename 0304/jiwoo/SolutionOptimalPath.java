@@ -10,9 +10,7 @@ public class SolutionOptimalPath{ //SWEA 1247
     static int minPath;
 
     public static void calculate(int depth, int cusNum, int acc){
-        if(minPath < acc) return;
-        int fromCompany = 0;
-        
+        if(minPath <= acc) return;
 
         if(depth == N){
             int goHome = Math.abs(home[0] - customers[cusNum][0]) + Math.abs(home[1] - customers[cusNum][1]);
@@ -25,10 +23,7 @@ public class SolutionOptimalPath{ //SWEA 1247
         for(int i = 0; i < N; i++){
             if(!visited[i]){
                 visited[i] = true;
-                if(depth == 0){
-                    fromCompany = Math.abs(company[0] - customers[i][0]) + Math.abs(company[1] - customers[i][1]);
-                }
-                calculate(depth + 1, i, acc + Math.abs(customers[cusNum][0] - customers[i][0]) + Math.abs(customers[cusNum][1] - customers[i][1]) + fromCompany);
+                calculate(depth + 1, i, acc + Math.abs(customers[cusNum][0] - customers[i][0]) + Math.abs(customers[cusNum][1] - customers[i][1]));
                 visited[i] = false;
             }
         }
@@ -45,6 +40,7 @@ public class SolutionOptimalPath{ //SWEA 1247
             customers = new int[N][2];
             visited = new boolean[N];
             minPath = Integer.MAX_VALUE;
+            int fromCompany = 0;
 
             StringTokenizer st = new StringTokenizer(br.readLine().trim());
 
@@ -59,7 +55,10 @@ public class SolutionOptimalPath{ //SWEA 1247
             }
 
             for(int i = 0; i < N; i++){
-                calculate(0, i, 0);
+                visited[i] = true;
+                fromCompany = Math.abs(company[0] - customers[i][0]) + Math.abs(company[1] - customers[i][1]);
+                calculate(1, i, fromCompany);
+                visited[i] = false;
             }
 
             System.out.println("#" + test_case + " " + minPath);
