@@ -1,19 +1,32 @@
 import java.util.*;
 import java.io.*;
 
-public class SolutionMintChocoMilk{
+public class SolutionMicroDust{
     static int R;
     static int C;
     static int T;
     static int[][] area;
     static int[][] temp;
-    static int[] dr = {-1, 1, 0, 0};
-    static int[] dc = {0, 0, -1, 1};
+    static int[] dr = {0, -1, 0, 1};
+    static int[] dc = {1, 0, -1, 0};
+    static int[] ddr = {0, 1, 0, -1};
+    static int[] ddc = {1, 0, -1, 0};
     static int[] purifierR;
+    static int result;
 
     public static boolean isWall(int r, int c){
         if(r < 0 || c < 0 || r >= R || c >= C) return true;
         return false;
+    }
+
+    public static void countSand(){
+        for(int i = 0; i < R; i++){
+            for(int j = 0; j < C; j++){
+                result += area[i][j];
+            }
+        }
+        result += 2; //air purifier -> 2 -1s
+        return;
     }
 
     public static void updateArea(){
@@ -25,7 +38,35 @@ public class SolutionMintChocoMilk{
     }
 
     public static void wind(){
-        //
+        int ur = purifierR[0];
+        int uc = 1;
+        int prev = 0;
+
+        for(int d = 0; d < 4; d++){
+            while(!isWall(ur, uc) || (area[ur][uc] != -1)){
+                int tmp = area[ur][uc];
+                temp[ur + dr[d]][uc + dc[d]] = tmp;
+                temp[ur][uc] = prev;
+                prev = tmp;
+                ur = ur + dr[d];
+                uc = uc + dc[d];
+            }
+        }
+
+        int ur = purifierR[1];
+        int uc = 1;
+        int prev = 0;
+
+        for(int d = 0; d < 4; d++){
+            while(!isWall(ur, uc) || (area[ur][uc] != -1)){
+                int tmp = area[ur][uc];
+                temp[ur + ddr[d]][uc + ddc[d]] = tmp;
+                temp[ur][uc] = prev;
+                prev = tmp;
+                ur = ur + ddr[d];
+                uc = uc + ddc[d];
+            }
+        }
     }
 
     public static boolean spread(){
@@ -43,10 +84,14 @@ public class SolutionMintChocoMilk{
                         spreadDir++;
                         temp[nr][nc] += spread;
                     }
-                    temp[i][j] = area[i][j] - spread * spreadDir;
+                    if(!(area[i][j] == -1)){
+                        temp[i][j] = area[i][j] - spread * spreadDir;
+                    }
                 }
             }
         }
+
+        updateArea();
 
         wind();
 
@@ -74,5 +119,12 @@ public class SolutionMintChocoMilk{
                 }
             }
         }
+
+        for(int i = 0; i < T; i++){
+            spread();
+        }
+
+        countSand();
+        System.out.println(result);
     }
 }
